@@ -1,12 +1,7 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
-import {
-    CSSTransition,
-    TransitionGroup,
-} from 'react-transition-group';
-
-import Nprogress from 'nprogress';
+import Nprogress from "nprogress";
 
 import {
     FaChevronCircleLeft,
@@ -16,6 +11,7 @@ import {
     FaSignal,
     FaChartLine
 } from "react-icons/fa";
+import Header from "./Header";
 
 class Details extends Component {
     componentDidMount() {
@@ -25,7 +21,12 @@ class Details extends Component {
 
     render() {
         const {
-            name, logo, symbol, cmc_rank, urls, quote
+            name,
+            logo,
+            symbol,
+            cmc_rank,
+            urls,
+            quote
         } = this.props.location.state.crypto;
 
         const website = urls.website[0];
@@ -35,19 +36,17 @@ class Details extends Component {
 
         return (
             <div className="container-fluid">
-                <h1 className="text-center">Cryptocurrency Details</h1>
+                <Header title="Cryptocurrency Details" />
                 <Link to="/">
                     <h1>
                         <FaChevronCircleLeft className="cart-icon mb-5" />
                     </h1>
                 </Link>
 
-                <div className="col-md-12 card p-4">
+                <div className="col-md-12 p-4 details">
                     <div className="row">
                         <div className="col-3">
-                            <div className="rank">
-                                Rank {cmc_rank}
-                            </div>
+                            <div className="rank">Rank {cmc_rank}</div>
                         </div>
                         <div className="col-3">
                             <div className="website">
@@ -68,11 +67,18 @@ class Details extends Component {
                     </div>
                     <div className="row mt-5">
                         <div className="col-4">
-                            <img src={logo} className="m-3" style={{ width: "40px" }} alt={name} />
+                            <img
+                                src={logo}
+                                className="m-3"
+                                style={{ width: "40px" }}
+                                alt={name}
+                            />
                             <div className="content">
                                 <h4>
                                     <em>
-                                        <acronym title={name}>{name} ({symbol})</acronym>
+                                        <acronym title={name}>
+                                            {name} ({symbol})
+                                        </acronym>
                                     </em>
                                 </h4>
                             </div>
@@ -99,13 +105,34 @@ class Details extends Component {
                     </div>
                     <div className="row">
                         <p className="mt-5 info">
-                            Today <span className="name"><b>{name}</b></span> price in US dollars is currently <span className="info-text"><b>{price} USD</b></span>. A total of <span className="info-text"><b>{volume_24h} coin's</b></span> are currently circulating in the Market. <em>{name}</em> prices are currently experiencing a change of  <span className="info-text"><b>{percent_change_24h}</b> %</span>. Over the past 24 hours <span className="info-text"><b>{Math.ceil(market_cap)} M US dollars</b></span>  Bitcoin has been traded on Crypto Exchanges.
-                        </p>
+                            Today{" "}
+                            <span className="name">
+                                <b>{name}</b>
+                            </span>{" "}
+                            price in US dollars is currently{" "}
+                            <span className="info-text">
+                                <b>{price} USD</b>
+                            </span>
+                            . A total of{" "}
+                            <span className="info-text">
+                                <b>{volume_24h} coin's</b>
+                            </span>{" "}
+                            are currently circulating in the Market. <em>{name}</em> prices
+              are currently experiencing a change of{" "}
+                            <span className="info-text">
+                                <b>{percent_change_24h}</b> %
+              </span>
+                            . Over the past 24 hours{" "}
+                            <span className="info-text">
+                                <b>{Math.ceil(market_cap)} M US dollars</b>
+                            </span>{" "}
+                            Bitcoin has been traded on Crypto Exchanges.
+            </p>
                     </div>
-                </div >
-            </div >
-        )
+                </div>
+            </div>
+        );
     }
 }
 
-export default Details
+export default Details;

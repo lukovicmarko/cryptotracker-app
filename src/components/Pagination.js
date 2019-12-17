@@ -27,24 +27,6 @@ const Pagination = ({ cryptoPerPage, totalCrypto, handleClick }) => {
                 }
             </ul>
         </nav>
-        // <nav>
-        //     <ul className="pagination justify-content-center">
-        //         {
-        //             pageNumbers.map(number => (
-        //                 <Link
-        //                     onClick={() => {
-        //                         handleClick(number)
-        //                     }}
-        //                     to="/"
-        //                     key={number}
-        //                     className="page-link m-1"
-        //                 >
-        //                     {number}
-        //                 </Link>
-        //             ))
-        //         }
-        //     </ul>
-        // </nav>
     )
 }
 

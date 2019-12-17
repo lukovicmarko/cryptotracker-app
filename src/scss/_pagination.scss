@@ -1,0 +1,20 @@
+ul.pagination a {
+    line-height: 1.42857;
+    padding: 6px 12px;
+    background-color: transparent;
+    min-width: 36px;
+    height: 36px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 20px;
+    color: #fff;   
+    border-radius: 20px;
+    margin: 0px 2px;
+    border-width: 2px;
+    border-color: transparent;
+    &:hover{
+        border-color: white;
+        background-color: transparent;
+        color: #fff;   
+    } 
+}

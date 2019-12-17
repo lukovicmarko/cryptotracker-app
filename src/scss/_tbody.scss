@@ -1,0 +1,10 @@
+td{
+    border: none !important; 
+    color: $white;   
+    .name {
+        color: #fff;
+        &:hover {
+            text-decoration: none
+        }
+    }    
+}
